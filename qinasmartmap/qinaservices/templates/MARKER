@@ -1,0 +1,20 @@
+ ////////
+                         return L.circleMarker(latlng, {
+                            fillColor: 'red',
+                            color: '#042a49',
+                            weight: 2,
+                            fillOpacity: 0.5
+                        }).on({
+                            mouseover: function(e) {
+                                this.setStyle({
+                                    color: 'yellow'
+                                });
+                            },
+
+                            mouseout: function(e) {
+                                this.setStyle({
+                                    color: '#042a49'
+                                });
+                            }
+                        });
+  /////

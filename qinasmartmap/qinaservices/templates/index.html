@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Qina Smart Map </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+{%include 'navbar.html'%}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">About Qina Smart Map</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+</head>
+<body>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col">
+    <div class="card">
+        <a href={%url 'education'%}>
+      <img src="//live.staticflickr.com/65535/51203720550_dc4dfd18c2_z.jpg" class="card-img-top" alt="...">
+      </a>
+            <div class="card-body">
+        <h5 class="card-title"><a>Educational services</a></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+         <a href={%url 'health'%}>
+      <img src="//live.staticflickr.com/65535/51203428349_40b03f1c85_z.jpg" class="card-img-top" alt="...">
+      </a>
+             <div class="card-body">
+        <h5 class="card-title"><a>Health services</a></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+        <a href={%url 'religious'%}>
+      <img src="//live.staticflickr.com/65535/51203428429_e5ba471af6_z.jpg" class="card-img-top" alt="...">
+      </a>
+            <div class="card-body">
+        <h5 class="card-title"><a>Religious services</a></h5>
+        <p class="card-text"></p>
+              </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+        <a href={%url 'other'%}>
+            <img src="//live.staticflickr.com/65535/51202858383_8d1f9dee9c_z.jpg" class="card-img-top" alt="..." >
+      </a>
+            <div class="card-body">
+        <h5 class="card-title"><a>PostOffice & fireStation</a></h5>
+        <p class="card-text"></p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<h1>Coverage of services in the city of Qena</h1>
+
+    <p class="lead">The interactive figure shows the percentages of public services coverage that were calculated according to the local standards of the city of Qena, which were developed during the study.</p>
+<div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<canvas id="ctx" width="100"></canvas>
+<script>
+var chart = new Chart(ctx, {
+   type: 'bar',
+   data: {
+      labels: ['Kindergarten', 'Primary school', 'preparatory school', 'High school', 'Ambulance stations', 'health center', 'Hospital', 'Mosque', 'Church', 'cultural services', 'gardens and open spaces', 'Post office', 'Fire stations', 'City Average'], // responsible for how many bars are gonna show on the chart
+      // create 12 datasets, since we have 12 items
+      // data[0] = labels[0] (data for first bar - 'Standing costs') | data[1] = labels[1] (data for second bar - 'Running costs')
+      // put 0, if there is no data for the particular bar
+      datasets: [{
+         label: 'covered by services %',
+         data: [86.8, 87.2, 88.5, 80,99.8,65.4,100,86,78.44,99.2,10.84,91.4,99.15,82.52],
+         backgroundColor: '#fdb903'
+      }, {
+         label: 'uncovered by services %',
+         data: [13.2, 12.8, 11.5, 20,0.2,34.6,0,14,21.56,0.8,89.16,8.6,0.85,17.48],
+         backgroundColor: '#b50707'
+        },
+      ],
+
+   },
+   options: {
+       responsive: true,
+       title:{
+           display:true,
+           text:'Coverage of services in the city of Qena',
+       },
+
+      // legend: {
+       //  position: 'right' // place legend on the right side of chart
+     // },
+      scales: {
+         xAxes: [{
+            stacked: true // this should be set to make the bars stacked
+         }],
+         yAxes: [{
+            stacked: true // this also..
+         }]
+      }
+   }
+});
+</script>
+    </div>
+<h1></h1>
+<div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<canvas id="chtx" width="700"></canvas>
+<script>
+var chart = new Chart(chtx, {
+   type: 'bar',
+   data: {
+      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',], // responsible for how many bars are gonna show on the chart
+      datasets: [{
+         label: 'Elhemidat % ',
+         data: [1.67, 0.75, 0.57, 0.55,0.16,0.05,0.28,0.12,0.02,0.05,0,0,],
+         backgroundColor: '#fdb903'
+      }, {
+        label: 'Hager Qena % ',
+         data: [5.26, 5.66, 6.89, 3.50,4.51,1.48,0.80,0.10,0.03,0.03,0,0,],
+         backgroundColor: '#043280'
+        },{
+         label: 'Qesm 1ST % ',
+         data: [0.21, 0.21, 0.44, 0.21,0.20,0.12,0.01,0.10,0.12,0,0,0,],
+         backgroundColor: '#0fa205'
+      },{
+         label: 'Qesm 2nd % ',
+         data: [0.55, 0.34, 0.02, 0.04,0,0,0,0,0,0,0,0,],
+         backgroundColor: '#018ce5'
+      },{
+         label: 'Qesm 3rd % ',
+         data: [16.30, 2.42, 0.90, 0.32,0.41,0.02,0.10,0,0,0,0,0,],
+         backgroundColor: '#b30202'
+      },],},
+     options: {
+       responsive: true,
+       title: {
+      display: true,
+      text: "Percentages of unserved areas according to the number of services that have a shortage in the city of Qena" },
+      scales: {
+         xAxes: [{
+            stacked: true // this should be set to make the bars stacked
+         }],
+         yAxes: [{
+            stacked: true // this also..
+         }]}}});
+</script>
+    </div>
+
+<div class="footer-basic">
+    <footer>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="/">Home</a></li>
+            <!-- <li class="list-inline-item"><a href="#">Help</a></li> -->
+            <li class="list-inline-item"><a href=https://www.linkedin.com/in/mohamed-shamroukh-348083126/>Linkedin</a></li>
+            <li class="list-inline-item"><a href=https://web.facebook.com/Mohamed.shamroukh.m>Facebook</a></li>
+            <li class="list-inline-item" ><p class="copyright">developed by Mohamed Shamroukh © 2020</p></li>
+
+              </ul>
+    </footer>
+</div>
+
+</body>
+</html>

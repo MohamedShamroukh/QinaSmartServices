@@ -1,0 +1,131 @@
+
+     <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  {% load leaflet_tags %}
+
+{% load geojson_tags %}
+
+{% load bootstrap4 %}
+{% leaflet_css %}
+{% load static %}
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  {% load static %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/bootstrap.min.css' %}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/mdb.min.css' %}">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/style.css' %}">
+    <!-- L.Control.Sidebar -->
+    <link rel="stylesheet" href="{% static 'app/content/css/L.Control.Sidebar.css' %}">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+     <div id="wrapper">
+   <div class="overlay"></div>
+
+        <!-- Sidebar -->
+    <ul class="nav sidebar-nav">
+    <div class="sidebar-header">
+        <div class="sidebar-brand">
+            <a href="#">Qina City Services</a></div></div>
+    <li><a href="#home">Home</a></li>
+
+    <li class="dropdown">
+        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">education  <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+            <div class="dropdown-header"></div>
+            <li><a href="#pictures">KG</a></li>
+            <li><a href="#videos">primary sc</a></li>
+            <li><a href="#books">prep sc</a></li>
+            <li><a href="#art">high sc</a></li>
+
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">health  <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+            <div class="dropdown-header"></div>
+            <li><a href="#pictures">hospitals</a></li>
+            <li><a href="#videos">ambulance</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">religious  <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+            <div class="dropdown-header"></div>
+            <li><a href="#pictures">mousqes</a></li>
+            <li><a href="#videos">churchs</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">other  <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+            <div class="dropdown-header"></div>
+            <li><a href="#pictures">post offices</a></li>
+            <li><a href="#videos">fire stations</a></li>
+        </ul>
+    </li>
+
+
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
+
+
+
+     <script>
+         $(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });
+});
+     </script>

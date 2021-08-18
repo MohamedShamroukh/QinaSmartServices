@@ -1,0 +1,105 @@
+
+{% load static %}
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'dist/leaflet.awesome-markers.css'%}" />
+    <script src="{% static 'dist/leaflet.awesome-markers.js' %}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+<link rel="stylesheet" href="{% static 'search/dist/leaflet-search.min.css'%}" />
+<link rel="stylesheet" href="{% static 'search/dist/leaflet-search.css'%}" />
+<link rel="stylesheet" href="{% static 'search/dist/leaflet-search.src.css'%}" />
+<link rel="stylesheet" href="{% static 'search/dist/leaflet-search.mobile.min.css'%}" />
+<link rel="stylesheet" href="{% static 'search/dist/leaflet-search.mobile.min.css'%}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+<link rel="stylesheet" href="{% static 'locate/dist/L.Control.Locate.css'%}" />
+<link rel="stylesheet" href="{% static 'locate/dist/L.Control.Locate.mapbox.css'%}" />
+<link rel="stylesheet" href="{% static 'locate/src/L.Control.Locate.mapbox.scss'%}" />
+
+    <script src="{% static 'locate/src/L.Control.Locate.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <script src="{% static 'search/src/leaflet-search.js' %}"></script>
+    <script src="{% static 'search/src/leaflet-search.js' %}"></script>
+
+    <script src="{% static 'search/dist/leaflet-search.src.js' %}"></script>
+
+<style>
+     .fa{
+    font-family: FontAwesome;}
+     .awesome-marker i {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+</style>
+  <script type="text/javascript">
+        function maplayers(map, options) {
+
+            var post = new L.GeoJSON.AJAX('{%url 'post_data'%}', {
+                    pointToLayer: function(feature, latlng) {
+ var postmarker = L.AwesomeMarkers.icon({
+    icon: "fas fa-envelope-square",
+     prefix:'fa',
+    markerColor: 'green'
+  });
+ return  L.marker(latlng,{icon: postmarker}).addTo(map);
+                    },
+                    onEachFeature: function(feature, layer) {
+                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        layer.bindPopup(popupText);
+                    }
+                });
+
+            var fire = new L.GeoJSON.AJAX('{%url 'fire_data'%}', {
+                    pointToLayer: function(feature, latlng) {
+  var marker2 = L.AwesomeMarkers.icon({
+    icon: 'firefighting',
+     prefix:'fa',
+    markerColor: 'red'
+  });
+ return  L.marker(latlng,{icon: marker2}).addTo(map);
+                    },
+                    onEachFeature: function(feature, layer) {
+                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        layer.bindPopup(popupText);
+                    }
+                });
+
+var allLayers = L.layerGroup([
+    post,
+    fire,
+   ])
+
+map.addLayer(allLayers);
+L.control.search({
+        position:'topright',
+		layer: allLayers,
+		initial: false,
+		propertyName: 'name',
+		buildTip: function(text, val) {
+			var type = val.layer.feature.properties.name;
+			return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';}
+
+	})
+	.addTo(map);
+
+map.addControl(L.control.locate({
+    strings: {
+        title: "Locate Me" },
+          locateOptions: {
+               maxZoom: 10,
+             enableHighAccuracy: true,
+}}));
+            map.layerscontrol.addOverlay(post,'Post Office')
+            map.layerscontrol.addOverlay(fire,'Fire station')
+
+
+        }
+
+    </script>
+
+
+
+

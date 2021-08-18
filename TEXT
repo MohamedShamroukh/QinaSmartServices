@@ -1,0 +1,1 @@
+python manage.py ogrinspect qinaservices/services/ambc.shp ambulance --srid=4326 --mapping --multi

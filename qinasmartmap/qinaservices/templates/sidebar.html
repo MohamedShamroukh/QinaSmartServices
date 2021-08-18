@@ -1,0 +1,321 @@
+   {% load leaflet_tags %}
+
+{% load geojson_tags %}
+
+{% block content %}
+{% load bootstrap4 %}
+{% leaflet_css %}
+{% load static %}
+
+     <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="description" content="public services">
+   <!-- scripts -->
+
+    <!-- JQuery -->
+    <script src="{% static 'app/mdb/js/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script src="{% static 'app/mdb/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'app/mdb/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script src="{% static 'app/mdb/js/mdb.min.js' %}"></script>
+    <!--Initializations-->
+    <script>
+
+    </script>
+
+    {% leaflet_js %}
+    <script src="{% static 'app/scripts/js/Chart.js' %}"></script>
+    <script src="{% static 'app/scripts/js/leaflet.ajax.min.js' %}"></script>
+    <script src="{% static 'app/scripts/js/L.Control.Sidebar.js' %}"></script>
+    <script src="{% static 'app/scripts/js/leaflet-button.js' %}"></script>
+
+	  <script src=></script>
+
+    <link rel="stylesheet" href="{% static 'app/css/styledLayerControl.css'%}" />
+    <script src="{% static 'app/src/styledLayerControl.js' %}"></script>
+
+
+     <!-- sidebar -->
+    <div id="sidebar">
+      <!-- sidebar heading -->
+      <div id="sidebar-heading" style="margin:5px;">
+        <h4 style="display:inline;"><b style="color:dodgerblue;">Qina</b>Services</h4>
+      </div>
+      <br>
+      <!-- sidebar body -->
+      <div id="sidebar-body" style="margin:5px; color:whitesmoke;">
+        <h6><i class="fa fa-globe" aria-hidden="true"></i> Layers</h6><br>
+        <div class="styled-input-container">
+            <div class="styled-input-single">
+                <input type="radio" name="fieldset-1" id="osm-radio" /><label for="osm-radio">Open Street Map</label>
+            </div>
+            <div class="styled-input-single">
+                <input type="radio" name="fieldset-1" id="terrain-radio" /><label for="terrain-radio">Terrain</label>
+            </div>
+        </div>
+        <hr style="background:whitesmoke;">
+        <h6><i class="fa fa-map-marker" aria-hidden="true"></i> Objects</h6><br>
+        <div class="styled-input-container styled-input--square">
+            <div class="styled-input-single">
+                <input type="checkbox" name="fieldset-5" id="suburb-chk" /><label for="suburb-chk">Suburbs</label>
+            </div>
+            <div class="styled-input-single">
+                <input type="checkbox" name="fieldset-5" id="damns-chk" /><label for="damns-chk">Damns</label>
+            </div>
+        </div>
+        <hr style="background:whitesmoke;">
+        <h6><i class="fa fa-bar-chart" aria-hidden="true"></i> Data</h6><br>
+        <div class="styled-input-container">
+            <div class="styled-input-single">
+                <input type="radio" name="fieldset-3" id="water-radio" /><label for="water-radio">Water Usage</label>
+            </div>
+            <div class="styled-input-single">
+                <input type="radio" name="fieldset-3" id="damn-radio" /><label for="damn-radio">Damn Levels</label>
+            </div>
+        </div>
+        <hr style="background:whitesmoke;">
+      </div>
+    </div>
+
+     <style>
+.leaflet-container {  /* all maps */
+    width:  100%;
+    /* height: calc(100vh - 60px); */
+    height: 100vh;
+}
+
+.legend, .temporal-legend {
+    padding: 6px 10px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color:whitesmoke;
+}
+
+#legendTitle {
+    text-align: center;
+    margin-bottom: 15px;
+    color: whitesmoke;
+    /* font-variant: small-caps; */
+    font-weight: bold;
+}
+
+.symbolsContainer {
+    float: left;
+    margin-left: 50px;
+}
+
+
+
+.legendValue {
+    position: absolute;
+    right: 12px;
+    color:whitesmoke;
+    font-size:10pt;
+    text-align:center;
+    font-weight: bold;
+}
+
+.info {
+    width:30vw;
+    height:48vh;
+    /* width:20vw; */
+    /* height:300px; */
+    padding: 6px 10px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color:whitesmoke;
+    /* max-width:100%;
+    max-height:100%; */
+}
+
+.info h6 {
+    margin: 0 0 5px;
+    color: #777;
+    text-align: center;
+    /* margin-bottom: 15px; */
+    color: whitesmoke;
+    /* font-variant: small-caps; */
+    font-weight: bold;
+}
+
+.info #horBarChart {
+    width: 100% !important;
+    max-width: 800px;
+    /* height:inherit; */
+}
+
+.leaflet-control-layers {
+    float:right;
+    top:500px;
+    right:0;
+    /* margin-left:-200px; */
+    position:absolute;
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color:whitesmoke;
+}
+</style>
+
+
+ <script type="text/javascript">
+  function main_map_init(map, options) {
+    var button = new L.Control.Button('Qina Services', {
+        toggleButton: 'active',
+        position: 'topleft',
+    });
+
+    button.addTo(map);
+
+    button.on('click', function() {
+        sidebar.toggle();
+    });
+
+    var sidebar = L.control.sidebar('sidebar', {
+        closeButton: true,
+        position: 'left'
+    }).addTo(map);
+
+
+
+
+
+
+
+
+     barChartLegend();
+
+    function barChartLegend() {
+
+      var info = L.control({position: 'topright'});
+      info.onAdd = function(map) {
+        var div = L.DomUtil.create('div', 'info');
+        div.innerHTML += '<h6>  Qina public services coverage percenatge (%)</h6>';
+        div.innerHTML += '<canvas id="horBarChart"></canvas>';
+
+        return div;
+      };
+
+      info.addTo(map);
+    }
+
+
+    displayhorBarChart();
+
+    function displayhorBarChart() {
+
+      var x_labels = ["mohamed","health services"];
+      var y_data = [11,50,];
+
+      $.ajax({
+        url: "/top10_consumers",
+        cache:"false",
+        dataType: "text",
+        type: "GET",
+
+        success: function(data) {
+          var obj = JSON.parse(data);
+
+          obj.forEach(o => {
+            x_labels.push(o.Suburb);
+          });
+
+          var label_array = Object.values(x_labels);
+
+          obj.forEach(o => {
+            y_data.push(o.AvgMonthlyKL);
+          });
+
+          var data_array = Object.values(y_data);
+
+          var ctx = document.getElementById("horBarChart").getContext("2d");
+          var canvas = document.getElementById("horBarChart");
+          var parent = document.getElementById("info");
+
+          var horBarChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+              labels: label_array,
+              datasets: [{
+                label: 'water',
+                backgroundColor: "rgba(0, 128, 128, 0.6)",
+                borderColor: "rgba(0, 128, 128, 1)",
+                data: data_array
+              }]
+            },
+
+            options: {
+              scaleShowValues: true,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }],
+                xAxes: [{
+                  ticks: {
+                    autoSkip: false,
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+      },
+
+      error: function(data) {
+        alert('error; '+ eval(error));
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   {% endblock %}

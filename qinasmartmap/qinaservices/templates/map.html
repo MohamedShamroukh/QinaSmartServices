@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load leaflet_tags %}
+{% load geojson_tags %}
+{% load bootstrap4 %}
+{% leaflet_css %}
+{% load static %}
+<div>
+
+</div>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ title }} - Qina Services </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    {%include 'navbar.html'%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="description" content="public services">
+
+    {% load static %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/bootstrap.min.css' %}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/mdb.min.css' %}">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="{% static 'app/mdb/css/style.css' %}">
+    <!-- L.Control.Sidebar -->
+    <link rel="stylesheet" href="{% static 'app/content/css/L.Control.Sidebar.css' %}">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    {% leaflet_css %}
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <!-- scripts -->
+
+    <!-- JQuery -->
+    <script src="{% static 'app/mdb/js/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script src="{% static 'app/mdb/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'app/mdb/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script src="{% static 'app/mdb/js/mdb.min.js' %}"></script>
+    <!--Initializations-->
+    <script>
+
+    </script>
+
+    {% leaflet_js %}
+    <script src="{% static 'app/scripts/js/Chart.js' %}"></script>
+    <script src="{% static 'app/scripts/js/leaflet.ajax.min.js' %}"></script>
+    <script src="{% static 'app/scripts/js/L.Control.Sidebar.js' %}"></script>
+    <script src="{% static 'app/scripts/js/leaflet-button.js' %}"></script>
+
+	  <script src=></script>
+
+    <link rel="stylesheet" href="{% static 'app/css/styledLayerControl.css'%}" />
+    <script src="{% static 'app/src/styledLayerControl.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
+    <div>
+        {% leaflet_map "main" callback="window.main_map_init" %}
+        <style>
+            .leaflet-container {
+                /* all maps */
+                width: 100%;
+                height: 89%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-top: 55px;
+                margin-bottom: 0px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+        </style>
+
+    </div>
+
+
+    <script type="text/javascript">
+        function maplayers(map, options) {
+            var data = new L.GeoJSON.AJAX('{%url 'ServicesData'%}', {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(latlng, {
+                            fillColor: 'red',
+                            color: '#042a49',
+                            weight: 2,
+                            fillOpacity: 0.5
+                        }).on({
+                            mouseover: function(e) {
+                                this.setStyle({
+                                    color: 'yellow'
+                                });
+                            },
+
+                            mouseout: function(e) {
+                                this.setStyle({
+                                    color: '#042a49'
+                                });
+                            }
+                        });
+                    },
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(feature.properties.name.toString());
+                    }
+                });
+            data.addTo(map);
+            var hos= map.layerscontrol.addOverlay(data, "Hospitals")
+            var  ho= map.layerscontrol.addOverlay(data, "Hospit");
+
+        }
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        let osm = ('Open Street Map', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                'maxZoom': 20
+            }),
+            sat=('Satellite base map',
+               'http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                   'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                   'maxZoom': 20}),
+            dark=('Dark base map', 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+                  'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                  'maxZoom': 20});
+            g_satellite = new L.Google('SATELLITE');
+
+        let map = L.map('map', {
+            center: (26.17 ,32.72),
+            zoom: 13,
+        });
+        map.addLayer(dark);
+
+        let baseMaps = [
+            {
+                groupName: "satellite Map",
+                expanded: true,
+                layers: {
+                    "google Satellite": g_satellite,
+                    "Esri Satellite": sat,
+                                    }
+            }, {
+                groupName: "OSM Base Maps",
+                layers: {
+                    "OpenStreetMaps": osm
+                }
+            }, {
+                groupName: "dark Base Maps",
+                layers: {
+                    "dark base map": dark,
+
+                }
+            }
+        ];
+
+        let overlays = [
+            {
+                groupName: "Sao Paulo",
+                expanded: true,
+                layers: {
+                    "servicesdata": services,
+
+                }
+            }, {
+                groupName: "Rio de Janeiro",
+                expanded: true,
+                layers: {
+
+                }
+            }, {
+                groupName: "Belo Horizonte",
+                layers: {
+
+                }
+            }
+        ];
+        let options = {
+            container_width: "300px",
+            container_maxHeight: "350px",
+            group_maxHeight: "80px",
+            exclusive: false
+        };
+        let control = L.Control.styledLayerControl(baseMaps, overlays, options);
+        map.addControl(control);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {%leaflet_map "gis" callback="window.maplayers"%}
+
+</body>
+
+</html>

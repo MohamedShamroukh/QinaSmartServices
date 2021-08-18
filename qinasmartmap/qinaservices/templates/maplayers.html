@@ -1,0 +1,47 @@
+   {% load static %}
+  <script type="text/javascript">
+        function maplayers(map, options) {
+
+            var mosque = new L.GeoJSON.AJAX('{%url 'mosque_data'%}', {
+                    pointToLayer: function(feature, latlng) {
+                        var century21icon = L.icon({
+    iconUrl:'https://live.staticflickr.com/65535/51201879579_7383dbf98e_m.jpg',
+    iconSize: [30, 30]
+    });
+ return  L.marker(latlng,{icon: century21icon}).addTo(map);
+                    },
+                    onEachFeature: function(feature, layer) {
+                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        layer.bindPopup(popupText);
+                    }
+                });
+
+            mosque.addTo(map);
+            var church = new L.GeoJSON.AJAX('{%url 'church_data'%}', {
+                    pointToLayer: function(feature, latlng) {
+                        var century21icon = L.icon({
+    iconUrl:'https://live.staticflickr.com/65535/51201879579_7383dbf98e_m.jpg',
+    iconSize: [30, 30]
+    });
+ return  L.marker(latlng,{icon: century21icon}).addTo(map);
+                    },
+                    onEachFeature: function(feature, layer) {
+                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        layer.bindPopup(popupText);
+                    }
+                });
+
+            church.addTo(map);
+
+
+            map.layerscontrol.addOverlay(mosque,'Mosque')
+            map.layerscontrol.addOverlay(church,'Church')
+
+
+        }
+
+    </script>
+
+
+
+
