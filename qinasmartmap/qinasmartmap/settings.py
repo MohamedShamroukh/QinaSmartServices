@@ -33,8 +33,9 @@ SECRET_KEY = 'django-insecure-p$rap7l!(@my(*8^^$f2-0b6l6v&6oux2rk&v75^xx@n6xk!pj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [qinasmartservices.herokuapp.com]
+ALLOWED_HOSTS=['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'corsheaders',
     'leaflet',
     'djgeojson',
     'bootstrap4',
@@ -62,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'qinasmartmap.urls'
