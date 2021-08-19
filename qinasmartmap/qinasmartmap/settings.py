@@ -92,14 +92,13 @@ WSGI_APPLICATION = 'qinasmartmap.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'qinaservicesdb',
-        'USER': 'servicesadmin',
-        'PASSWORD': 'qina2021',
-        'HOST': '',
-        'PORT': '',
+        'NAME': 'd7slnfv5i3blrl',
+        'USER': 'ixmbrvrtuoslbt',
+        'PASSWORD': 'd194efe4ecef2c156be540a9ec4e53f2a6027ee903248ab477a39f3567395ba0',
+        'HOST': 'ec2-18-211-41-246.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
