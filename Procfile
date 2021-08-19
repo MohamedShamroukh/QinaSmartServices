@@ -1,1 +1,1 @@
-web:gunicorn qinasmartmap.wsgi
+web: gunicorn core.wsgi --log-file=-
