@@ -30,7 +30,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = 'django-insecure-p$rap7l!(@my(*8^^$f2-0b6l6v&6oux2rk&v75^xx@n6xk!pj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -95,7 +95,8 @@ DATABASES = {
         'NAME': 'qinaservicesdb',
         'USER': 'servicesadmin',
         'PASSWORD': 'qina2021',
-        'HOST': '*',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
