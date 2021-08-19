@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_heroku
 from pathlib import Path
 import os
 from django.core.management.utils import get_random_secret_key
@@ -33,7 +32,7 @@ SECRET_KEY = 'django-insecure-p$rap7l!(@my(*8^^$f2-0b6l6v&6oux2rk&v75^xx@n6xk!pj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
@@ -165,4 +164,3 @@ LEAFLET_CONFIG = {
 
 
 }
-django_heroku.settings(locals())
