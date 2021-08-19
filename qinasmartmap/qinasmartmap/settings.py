@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'qinaservicesdb',
         'USER': 'servicesadmin',
         'PASSWORD': 'qina2021',
-        'HOST': 'localhost',
+        'HOST': '*',
     }
 }
 
