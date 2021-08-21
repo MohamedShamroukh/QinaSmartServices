@@ -1,1 +1,1 @@
-web: gunicorn qinasmartmap.wsgi --chdir="/QinaSmartMap/qinasmartmap"
+web: gunicorn qinasmartmap.wsgi
