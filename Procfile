@@ -1,1 +1,1 @@
-web: gunicorn qinasmartmap.wsgi.application
+web: gunicorn QinaSmartMap.wsgi.application
