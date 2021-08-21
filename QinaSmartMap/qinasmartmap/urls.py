@@ -42,4 +42,4 @@ urlpatterns = [
     url(r'^prep_data/$', views.prep_data, name='prep_data'),
     url(r'^high_data/$', views.high_data, name='high_data'),
 
-              ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
