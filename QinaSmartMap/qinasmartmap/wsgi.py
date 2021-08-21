@@ -11,7 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'QinaSmartMap.settings.dev')
-os.environ["DJANGO_SETTINGS_MODULE"] = 'qinasmartmap.settings'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'qinasmartmap.settings.dev')
 application = get_wsgi_application()
 
