@@ -1,2 +1,2 @@
 
-web: cd QinaSmart && gunicorn --preload QinaSmart.QinaSmart.wsgi
+web: cd QinaSmartMap && gunicorn --preload QinaSmartMap.QinaSmart.wsgi
