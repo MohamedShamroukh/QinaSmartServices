@@ -24,10 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 DATA_DIR = os.path.join(BASE_DIR, 'services')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
 MEDIA_URL = '/media/'
-STATIC_DIRS = [
-    "QinaSmartMap/qinaservics/static/",
-    "QinaSmartMap/static/",
-]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -70,10 +67,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
 ROOT_URLCONF = 'QinaSmart.urls'
 
 TEMPLATES = [
@@ -141,11 +134,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_URL = 'https://www.qinasmartservices.herokuapp.com/static/'
+STATIC_URL = 'https://qinasmartservices.herokuapp.com/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
-# STATIC_ROOT = "/var/www/ qinasmartservices.herokuapp.com/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -160,7 +151,7 @@ LEAFLET_CONFIG = {
     'MINIMAP': False,
     'RESET_VIEW': False,
     'ATTRIBUTION_PREFIX': 'Powered by Mohamed Shamroukh',
-    'OVERLAYS': [],
+    'OVERLAYS':[],
     'TILES': [('Open Street Map', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                {'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                 'maxZoom': 20}),
