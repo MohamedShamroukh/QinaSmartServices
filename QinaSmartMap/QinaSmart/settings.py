@@ -27,7 +27,10 @@ DATA_DIR = os.path.join(BASE_DIR, 'services')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, "QinaSmartMap/qinaservics/static/"),
+    os.path.join(BASE_DIR, "QinaSmartMap/static/"),
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
