@@ -44,3 +44,6 @@ urlpatterns = [
     url(r'^high_data/$', views.high_data, name='high_data'),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+admin.site.site_header = "Qina Smart Map Admin"
+admin.site.site_title = "Qina Smart Map Admin Portal"
+admin.site.index_title = "Welcome to Qina Smart Map Portal"
