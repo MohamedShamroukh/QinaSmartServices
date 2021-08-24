@@ -100,17 +100,20 @@
      <link rel="stylesheet" href="{% static 'app/css/styledLayerControl.css'%}" />
     <script src="{% static 'app/src/styledLayerControl.js' %}"></script>
     {% block scripts %}{% endblock %}
-    <div>
+
         <style>
+
+            html, body {
+   height: 100%;
+}
             .leaflet-container {
                 /* all maps */
                 width: 100%;
-                 Height: 88vh;
-
+                Height:92%;
             }
         </style>
 
-    </div>
+
 
     {%include 'schoollayers.html'%}
 
