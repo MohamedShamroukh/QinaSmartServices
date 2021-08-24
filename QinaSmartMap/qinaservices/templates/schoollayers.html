@@ -144,7 +144,10 @@ map.addControl(L.control.locate({
             map.layerscontrol.addOverlay(sc2,'Preparatory school')
             map.layerscontrol.addOverlay(sc3,'High School')
         }
-
+var map = L.map('map', {zoomControl: true});
+if (L.Browser.mobile) {
+   map.removeControl(map.zoomControl);
+}
     </script>
 
 
