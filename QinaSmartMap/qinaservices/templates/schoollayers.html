@@ -143,17 +143,14 @@ map.addControl(L.control.locate({
             map.layerscontrol.addOverlay(sc1,'Primary School')
             map.layerscontrol.addOverlay(sc2,'Preparatory school')
             map.layerscontrol.addOverlay(sc3,'High School')
-        }
-var showZoom = true;
 
-// Test for a mobile device
+map.zoomControl.enable();
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- showZoom = false;
+ map.zoomControl.disable();
 }
 
-// specify this option during the map creation
-var map = L.map('map',{zoomControl: showZoom})
 
+            }
     </script>
 
 
