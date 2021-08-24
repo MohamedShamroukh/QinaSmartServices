@@ -107,6 +107,10 @@ map.addControl(L.control.locate({
             map.layerscontrol.addOverlay(post,'Post Office')
             map.layerscontrol.addOverlay(fire,'Fire station')
 
+map.zoomControl.enable();
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ map.zoomControl.disable();
+}
 
         }
 

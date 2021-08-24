@@ -101,6 +101,10 @@ map.addControl(L.control.locate({
 }}));
             map.layerscontrol.addOverlay(ambulance,'Ambulance')
             map.layerscontrol.addOverlay(hospital,'Hospital')
+map.zoomControl.enable();
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ map.zoomControl.disable();
+}
 
   }
     </script>
