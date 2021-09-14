@@ -8,8 +8,18 @@
 {%include 'navbar2.html'%}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">About Qina Smart Map</h1>
-    <p class="lead">This is an overview of Qina Services Smart Spatial Analysis Results.</p>
+        <style>
+     .jumbotron {
+    background-image: url('https://live.staticflickr.com/65535/51476766044_30bacebc0b_b.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+
+    padding-top: 26%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+}
+</style>
   </div>
 </div>
 </head>
@@ -64,8 +74,7 @@
   </div>
 </div>
 <h1>Coverage of services in the city of Qena</h1>
-
-    <p class="lead">The interactive figure shows the percentages of public services coverage that were calculated according to the local standards of the city of Qena, which were developed during the study.</p>
+ <p class="lead">The interactive figure shows the percentages of public services coverage that were calculated according to the local standards of the city of Qena, which were developed during the study.</p>
 <div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <canvas id="ctx" width="100"></canvas>
@@ -73,16 +82,16 @@
 var chart = new Chart(ctx, {
    type: 'bar',
    data: {
-      labels: ['Kindergarten', 'Primary school', 'preparatory school', 'High school', 'Ambulance stations', 'health center', 'Hospital', 'Mosque', 'Church', 'cultural services', 'gardens and open spaces', 'Post office', 'Fire stations', 'City Average'], // responsible for how many bars are gonna show on the chart
+      labels: ['رياض الأطفال', 'التعليم الابتدائي', 'التعليم الاعدادي', 'التعليم الثانوي', 'الاسعاف', 'الوحدات الصحية', 'المستشفيات', 'المساجد', 'الكنائس', 'الخدمات الثقافية', 'الحدائق والمناطق المفتوحة', 'البريد', 'المطافئ', 'متوسط تغطية المدينة'], // responsible for how many bars are gonna show on the chart
       // create 12 datasets, since we have 12 items
       // data[0] = labels[0] (data for first bar - 'Standing costs') | data[1] = labels[1] (data for second bar - 'Running costs')
       // put 0, if there is no data for the particular bar
       datasets: [{
-         label: 'covered by services %',
+         label: '% مخدوم ',
          data: [86.8, 87.2, 88.5, 80,99.8,65.4,100,86,78.44,99.2,10.84,91.4,99.15,82.52],
          backgroundColor: '#fdb903'
       }, {
-         label: 'uncovered by services %',
+         label: ' % غير مخدوم',
          data: [13.2, 12.8, 11.5, 20,0.2,34.6,0,14,21.56,0.8,89.16,8.6,0.85,17.48],
          backgroundColor: '#b50707'
         },
@@ -121,23 +130,23 @@ var chart = new Chart(chtx, {
    data: {
       labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',], // responsible for how many bars are gonna show on the chart
       datasets: [{
-         label: 'Elhemidat % ',
+         label: ' % الحميدات',
          data: [1.67, 0.75, 0.57, 0.55,0.16,0.05,0.28,0.12,0.02,0.05,0,0,],
          backgroundColor: '#fdb903'
       }, {
-        label: 'Hager Qena % ',
+        label: ' % حاجر قنا ',
          data: [5.26, 5.66, 6.89, 3.50,4.51,1.48,0.80,0.10,0.03,0.03,0,0,],
          backgroundColor: '#043280'
         },{
-         label: 'Qesm 1ST % ',
+         label: ' % قسم أول',
          data: [0.21, 0.21, 0.44, 0.21,0.20,0.12,0.01,0.10,0.12,0,0,0,],
          backgroundColor: '#0fa205'
       },{
-         label: 'Qesm 2nd % ',
+         label: ' % قسم ثان ',
          data: [0.55, 0.34, 0.02, 0.04,0,0,0,0,0,0,0,0,],
          backgroundColor: '#018ce5'
       },{
-         label: 'Qesm 3rd % ',
+         label: ' % قسم ثالث ',
          data: [16.30, 2.42, 0.90, 0.32,0.41,0.02,0.10,0,0,0,0,0,],
          backgroundColor: '#b30202'
       },],},
