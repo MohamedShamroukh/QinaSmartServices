@@ -34,7 +34,8 @@
     <script src="{% static 'search/src/leaflet-search.js' %}"></script>
     <script src="{% static 'QinaSmartMap/qinaservices/static/search/images/search-icon.png' %}"></script>
 <script src="{% static 'search/dist/leaflet-search.src.js' %}"></script>
-
+<script src="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.js"></script>
+<link rel="stylesheet" href="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.css">
 <style>
       .fa{
     font-family: FontAwesome;}
@@ -50,7 +51,7 @@
                     pointToLayer: function(feature, latlng) {
  var redMarker =L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/472/472921.png',
-    iconSize: [50, 50]
+    iconSize: [40, 40]
     });
  return  L.marker(latlng,{icon: redMarker}).addTo(map);},
                                         onEachFeature: function(feature, layer) {
@@ -62,7 +63,7 @@
                     pointToLayer: function(feature, latlng) {
  var marker2 =  L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/2622/2622367.png',
-    iconSize: [50, 50]
+    iconSize: [40, 40]
     });
    return  L.marker(latlng,{icon: marker2}).addTo(map);  },
                                       onEachFeature: function(feature, layer) {
@@ -105,7 +106,23 @@ map.zoomControl.enable();
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  map.zoomControl.disable();
 }
-
+L.control.Legend({
+    position: "bottomleft",
+    title:"",
+    symbolWidth:30,
+    symbolHeight:30,
+    collapsed:true,
+    opacity:0.6,
+    legends: [{
+        label:  " Hospital ",
+        type: "image",
+        url: "https://cdn-icons-png.flaticon.com/512/472/472921.png",
+    },{
+        label: " Ambulance Station ",
+        type: "image",
+        url: "https://cdn-icons-png.flaticon.com/512/2622/2622367.png",
+    }]
+}).addTo(map);
   }
     </script>
 
