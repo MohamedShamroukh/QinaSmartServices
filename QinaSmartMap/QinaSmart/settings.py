@@ -148,27 +148,18 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (26.17, 32.73),
-    'DEFAULT_ZOOM': 14,
-    'MAX_ZOOM': 17,
-    'MIN_ZOOM': 11,
-    'SCALE': 'both',
-    'MINIMAP': False,
-    'RESET_VIEW': False,
-    'ATTRIBUTION_PREFIX': 'Powered by Mohamed Shamroukh',
-    'OVERLAYS': [],
-    'TILES': [('Open Street Map', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-               {'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                'maxZoom': 20}),
-              ('Satellite base map',
-               'http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                   'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-                   'maxZoom': 20}),
-              ('Dark base map', 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
-                  'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-                  'maxZoom': 20})],
-
-
-
-}
+LEAFLET_CONFIG = dict(DEFAULT_CENTER=(26.17, 32.73), DEFAULT_ZOOM=14, MAX_ZOOM=19, MIN_ZOOM=11, SCALE='both',
+                      MINIMAP=False, RESET_VIEW=False, ATTRIBUTION_PREFIX='Powered by Mohamed Shamroukh', OVERLAYS=[],
+                      TILES=[('Open Street Map', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                              {
+                                  'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                                  'maxZoom': 20}),
+                              ('Satellite base map',
+                              'http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                              {
+                                  'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                                  'maxZoom': 17}),
+                             ('Dark base map',
+                              'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+                                  'attribution': '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                                  'maxZoom': 20})])

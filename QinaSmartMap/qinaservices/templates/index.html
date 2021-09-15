@@ -73,12 +73,21 @@
     </div>
   </div>
 </div>
-<h1>Coverage of services in the city of Qena</h1>
- <p class="lead">The interactive figure shows the percentages of public services coverage that were calculated according to the local standards of the city of Qena, which were developed during the study.</p>
+<h2></h2>
 <div>
+        <h2>Coverage of services in the city of Qena <span class="badge badge-secondary">Chart1</span></h2>
+ <p class="lead">The interactive figure shows the percentages of public services coverage that were calculated according to the local standards of the city of Qena, which were developed during the study.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <canvas id="ctx" width="100"></canvas>
 <script>
+    plugins: [ChartDataLabels],
+     Chart.register(ChartDataLabels);
+Chart.defaults.set('plugins.datalabels', {
+  color: '#fafafa'
+});
 var chart = new Chart(ctx, {
    type: 'bar',
    data: {
@@ -98,33 +107,46 @@ var chart = new Chart(ctx, {
       ],
 
    },
+
    options: {
        responsive: true,
        title:{
            display:true,
            text:'Coverage of services in the city of Qena',
-       },
 
+       },
       // legend: {
        //  position: 'right' // place legend on the right side of chart
      // },
       scales: {
-         xAxes: [{
+         xAxes: {
             stacked: true // this should be set to make the bars stacked
-         }],
-         yAxes: [{
+         },
+         yAxes: {
             stacked: true // this also..
-         }]
-      }
-   }
+         }
+      },
+   },
+
 });
 </script>
     </div>
 <h1></h1>
 <div>
+    <h2>Percentages of unserved areas according to the number of services that have a shortage in the city of Qena <span class="badge badge-secondary">Chart2</span></h2>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
 <canvas id="chtx" width="700"></canvas>
 <script>
+        plugins: [ChartDataLabels],
+     Chart.register(ChartDataLabels);
+Chart.defaults.set('plugins.datalabels', {
+  color: '#fafafa'
+});
 var chart = new Chart(chtx, {
    type: 'bar',
    data: {
@@ -154,25 +176,57 @@ var chart = new Chart(chtx, {
        responsive: true,
        title: {
       display: true,
-      text: "Percentages of unserved areas according to the number of services that have a shortage in the city of Qena" },
+      text: "" },
       scales: {
-         xAxes: [{
+         xAxes: {
             stacked: true // this should be set to make the bars stacked
-         }],
-         yAxes: [{
+         },
+         yAxes: {
             stacked: true // this also..
-         }]}}});
+         }}}});
 </script>
+
+
     </div>
 
-<div class="footer-basic">
+    <h2> </h2>
+
+  <div class="container2">
+          <h2>Project Team Work <span class="badge badge-secondary">Supervisors</span></h2>
+
+        <!-- Three columns of text below the carousel -->
+         <div class="row justify-content-md-center">
+          <div class="col">
+            <img class="rounded-circle" src="https://scontent.fcai20-1.fna.fbcdn.net/v/t1.6435-9/118262093_3016967741746463_1422518047233113815_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_ohc=eNnE29tOHTMAX88rMl2&_nc_ht=scontent.fcai20-1.fna&oh=c6f3af06b39c45c244539e3f7b67b0ba&oe=6166C44B" alt="Generic placeholder image" width="110" height="110">
+            <h6>Prof.Mohamed Alkhuzamy Aziz</h6>
+            <p><a class="btn btn-secondary" href="http://www.fayoum.edu.eg/arts/Geography/DrMohamedE.aspx" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col">
+            <img class="rounded-circle" src="https://scontent.fcai20-1.fna.fbcdn.net/v/t1.6435-9/125057594_180238343710151_5566141863686889402_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=174925&_nc_ohc=j8S-0DCjXhoAX8d7XBh&_nc_ht=scontent.fcai20-1.fna&oh=d1f80f49dc16218d0b61d4a1e8638a68&oe=61684105" alt="Generic placeholder image" width="110" height="110">
+            <h6>Prof.Ibrahim Dissouky Mahmoud</h6>
+            <p><a class="btn btn-secondary" href="http://app.svu.edu.eg/arabic/staff/application/result.aspx?id_num=34" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col">
+            <img class="rounded-circle" src="https://scontent.fcai20-1.fna.fbcdn.net/v/t1.6435-9/84740353_3013682635361826_4354723433687285760_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=BAKT3xRyKk0AX_Ovf2w&_nc_ht=scontent.fcai20-1.fna&oh=ef2df2edb681daa2035f8dffa9e13646&oe=61661DAA" alt="Generic placeholder image" width="110" height="110">
+            <h6>Dr.Hamdan Saad Naggar</h6>
+            <p><a class="btn btn-secondary" href="http://app.svu.edu.eg/arabic/staff/application/result.aspx?id_num=246" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+            <div class="col">
+            <img class="rounded-circle" src="https://pbs.twimg.com/profile_images/1384761679188307969/-He0GgKv_400x400.jpg" alt="Generic placeholder image" width="110" height="110">
+            <h6>Mohamed Shamroukh Mohamed</h6>
+            <p><a class="btn btn-secondary" href="" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div>
+        </div>
+{%include 'softs.html'%}
+
+<div class="container1">
     <footer>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="/">Home</a></li>
             <!-- <li class="list-inline-item"><a href="#">Help</a></li> -->
             <li class="list-inline-item"><a href=https://www.linkedin.com/in/mohamed-shamroukh-348083126/>Linkedin</a></li>
             <li class="list-inline-item"><a href=https://web.facebook.com/Mohamed.shamroukh.m>Facebook</a></li>
-            <li class="list-inline-item" ><p class="copyright">developed by Mohamed Shamroukh © 2020</p></li>
+            <li class="list-inline-item" ><p class="copyright">developed by Mohamed Shamroukh Mohamed © 2021</p></li>
 
               </ul>
     </footer>

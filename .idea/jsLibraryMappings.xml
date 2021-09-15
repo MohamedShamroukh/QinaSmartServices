@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{Leaflet.EasyButton, Leaflet.awesome-markers, bootstrap, font-awesome, ionicons, jquery, jquery-3.4.1.slim, jquery-3.5.1.slim, leaflet, leaflet-ajax, leaflet-locatecontrol, leaflet-search, leaflet.awesome-markers, leaflet.draw, leaflet.locatecontrol, mdb-ui-kit, popper.js}" />
+    <file url="file://$PROJECT_DIR$" libraries="{Leaflet.EasyButton, Leaflet.awesome-markers, bootstrap, chartjs-plugin-datalabels, font-awesome, ionicons, jquery, jquery-3.4.1.slim, jquery-3.5.1.slim, leaflet, leaflet-ajax, leaflet-locatecontrol, leaflet-search, leaflet.awesome-markers, leaflet.draw, leaflet.locatecontrol, mdb-ui-kit, popper.js}" />
   </component>
 </project>

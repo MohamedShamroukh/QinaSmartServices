@@ -33,6 +33,7 @@
     <orderEntry type="library" name="mdb-ui-kit" level="application" />
     <orderEntry type="library" name="leaflet-locatecontrol" level="application" />
     <orderEntry type="library" name="Leaflet.EasyButton" level="application" />
+    <orderEntry type="library" name="chartjs-plugin-datalabels" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

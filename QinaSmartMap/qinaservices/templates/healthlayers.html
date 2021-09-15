@@ -48,10 +48,10 @@
         function maplayers(map, options) {
             var hospital = new L.GeoJSON.AJAX('{%url 'hospital_data'%}', {
                     pointToLayer: function(feature, latlng) {
- var redMarker = L.AwesomeMarkers.icon({
-    icon: 'hospital',
-     prefix:'fa',
-    markerColor: 'green' });
+ var redMarker =L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/472/472921.png',
+    iconSize: [50, 50]
+    });
  return  L.marker(latlng,{icon: redMarker}).addTo(map);},
                                         onEachFeature: function(feature, layer) {
                         var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
@@ -60,10 +60,10 @@
 
             var ambulance = new L.GeoJSON.AJAX('{%url 'ambulance_data'%}', {
                     pointToLayer: function(feature, latlng) {
- var marker2 = L.AwesomeMarkers.icon({
-    icon: 'ambulance',
-     prefix:'fa',
-    markerColor: 'blue'});
+ var marker2 =  L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/2622/2622367.png',
+    iconSize: [50, 50]
+    });
    return  L.marker(latlng,{icon: marker2}).addTo(map);  },
                                       onEachFeature: function(feature, layer) {
                         var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
