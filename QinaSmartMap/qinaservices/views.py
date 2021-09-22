@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.views.generic import View
 from django.core.serializers import serialize
 from .models import Hospital, Ambulance, PostOffice, Mosque, Church, FireStation, Kindergarten, PrimarySC, \
-    PreparatorySC, HighSC
+    PreparatorySC, HighSC, CityBorder, Roads
 from django.template.context import Context
 
 
@@ -58,6 +58,16 @@ def prep_data(request):
 def high_data(request):
     high = serialize('geojson', HighSC.objects.all())
     return HttpResponse(high, content_type='json')
+
+
+def border_data(request):
+    border = serialize('geojson', CityBorder.objects.all())
+    return HttpResponse(border, content_type='json')
+
+
+def roads_data(request):
+    road = serialize('geojson', Roads.objects.all())
+    return HttpResponse(road, content_type='json')
 
 
 def home(request):

@@ -4,7 +4,9 @@ from django.contrib.gis.db import models
 
 
 class Hospital(models.Model):
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=50)
+    enname = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -17,6 +19,7 @@ class Hospital(models.Model):
 # Create your models here.
 class Ambulance(models.Model):
     name = models.CharField(max_length=50)
+    carnum = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -28,6 +31,9 @@ class Ambulance(models.Model):
 
 class PostOffice(models.Model):
     name = models.CharField(max_length=254)
+    postal_cod = models.CharField(max_length=50)
+    grade = models.CharField(max_length=50)
+    e_name = models.CharField(max_length=254)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -39,6 +45,7 @@ class PostOffice(models.Model):
 
 class Mosque(models.Model):
     name = models.CharField(max_length=254)
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -50,6 +57,7 @@ class Mosque(models.Model):
 
 class Church(models.Model):
     name = models.CharField(max_length=254)
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -61,6 +69,7 @@ class Church(models.Model):
 
 class FireStation(models.Model):
     name = models.CharField(max_length=50)
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -72,6 +81,8 @@ class FireStation(models.Model):
 
 class Kindergarten(models.Model):
     name = models.CharField(max_length=254)
+    classes = models.IntegerField()
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -83,6 +94,8 @@ class Kindergarten(models.Model):
 
 class PrimarySC(models.Model):
     name = models.CharField(max_length=254)
+    enname = models.CharField(max_length=50)
+    classes = models.IntegerField()
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -94,6 +107,8 @@ class PrimarySC(models.Model):
 
 class PreparatorySC(models.Model):
     name = models.CharField(max_length=254)
+    classes = models.IntegerField()
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -105,6 +120,8 @@ class PreparatorySC(models.Model):
 
 class HighSC(models.Model):
     name = models.CharField(max_length=254)
+    classes = models.IntegerField()
+    enname = models.CharField(max_length=50)
     geom = models.MultiPointField(srid=4326)
 
     def __unicode__(self):
@@ -114,6 +131,24 @@ class HighSC(models.Model):
         verbose_name = 'HighSC'
 
 
+class CityBorder(models.Model):
+    section_a_field = models.CharField(max_length=150)
+    section_e_field = models.CharField(max_length=150)
+    geom = models.MultiPolygonField(srid=4326)
+
+    def __unicode__(self):
+        return self.section_a_field
+
+    class Meta:
+        verbose_name = 'CityBorder'
 
 
+class Roads(models.Model):
+    name = models.CharField(max_length=50)
+    geom = models.MultiLineStringField(srid=4326)
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Roads'

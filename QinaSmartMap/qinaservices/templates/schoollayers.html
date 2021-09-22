@@ -52,12 +52,12 @@
                     pointToLayer: function(feature, latlng) {
      var marker1= L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/2231/2231492.png',
-    iconSize: [40, 40]
+    iconSize: [30, 30]
     });
  return  L.marker(latlng,{icon: marker1}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +feature.properties.name.toString() + "<br />" +" متوسط عدد الفصول "+ feature.properties.classes.toString() +"</strong>"+ "<br />" + feature.properties.enname.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });
@@ -66,12 +66,12 @@
                     pointToLayer: function(feature, latlng) {
      var marker2= L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/2883/2883815.png',
-    iconSize: [40, 40]
+    iconSize: [30, 30]
     });
  return  L.marker(latlng,{icon: marker2}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +feature.properties.name.toString() + "<br />" +" متوسط عدد الفصول "+ feature.properties.classes.toString() +"</strong>"+ "<br />" + feature.properties.enname.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });
@@ -80,12 +80,12 @@
                     pointToLayer: function(feature, latlng) {
      var marker3=L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/899/899782.png',
-    iconSize: [40, 40]
+    iconSize: [30, 30]
     });
  return  L.marker(latlng,{icon: marker3}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +feature.properties.name.toString() + "<br />" +" متوسط عدد الفصول "+ feature.properties.classes.toString() +"</strong>"+ "<br />" + feature.properties.enname.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });
@@ -94,12 +94,12 @@
                     pointToLayer: function(feature, latlng) {
    var marker4= L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/1825/1825742.png',
-    iconSize: [40, 40]
+    iconSize: [30, 30]
     });
  return  L.marker(latlng,{icon: marker4}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +feature.properties.name.toString() + "<br />" +" متوسط عدد الفصول "+ feature.properties.classes.toString() +"</strong>"+ "<br />" + feature.properties.enname.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });

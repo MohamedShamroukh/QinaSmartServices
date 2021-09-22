@@ -42,7 +42,8 @@ urlpatterns = [
     url(r'^primary_data/$', views.primary_data, name='primary_data'),
     url(r'^prep_data/$', views.prep_data, name='prep_data'),
     url(r'^high_data/$', views.high_data, name='high_data'),
-
+    url(r'^roads_data/$', views.roads_data, name='roads_data'),
+    url(r'^border_data/$', views.border_data, name='border_data'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 admin.site.site_header = "Qena Smart Map Admin"
 admin.site.site_title = "Qena Smart Map Admin Portal"

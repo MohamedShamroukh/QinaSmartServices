@@ -58,7 +58,7 @@
  return  L.marker(latlng,{icon: postmarker}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +" مكتب بريد "+"<strong>" +feature.properties.name.toString() + "<br />" +" الرمز البريدي  "+ feature.properties.postal_cod.toString() +" الدرجة  "+ feature.properties.grade.toString() +"</strong>"+ "<br />" + feature.properties.e_name.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });
@@ -72,7 +72,7 @@
  return  L.marker(latlng,{icon: marker2}).addTo(map);
                     },
                     onEachFeature: function(feature, layer) {
-                        var popupText = "<strong>" + feature.properties.name.toString() + "</strong>";
+                        var popupText = "<strong>" +feature.properties.name.toString() + "<br />"+"</strong>"+ "<br />" + feature.properties.enname.toString() +"</strong>";
                         layer.bindPopup(popupText);
                     }
                 });
