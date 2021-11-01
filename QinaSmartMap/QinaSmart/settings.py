@@ -148,7 +148,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LEAFLET_CONFIG = dict(DEFAULT_CENTER=(26.17, 32.73), DEFAULT_ZOOM=14, MAX_ZOOM=19, MIN_ZOOM=11, SCALE='both',
+LEAFLET_CONFIG = dict(DEFAULT_CENTER=(26.17, 32.73), DEFAULT_ZOOM=15, MAX_ZOOM=17, MIN_ZOOM=13, SCALE='both',
                       MINIMAP=False, RESET_VIEW=False, ATTRIBUTION_PREFIX='Powered by Mohamed Shamroukh', OVERLAYS=[],
                       TILES=[('Open Street Map', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                               {
