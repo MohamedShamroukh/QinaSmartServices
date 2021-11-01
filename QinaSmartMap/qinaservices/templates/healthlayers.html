@@ -36,6 +36,9 @@
 <script src="{% static 'search/dist/leaflet-search.src.js' %}"></script>
 <script src="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.js"></script>
 <link rel="stylesheet" href="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.css">
+<script src="https://github.com/makinacorpus/Leaflet.TextPath/blob/master/leaflet.textpath.js"></script>
+<script src="https://rawcdn.githack.com/Viglino/Canvas-TextPath/9a757d745071e0eaf2440a1d02117dad38f5b6dd/ctxtextpath.js"></script>
+<script src="https://raw.githack.com/3mapslab/Leaflet.streetlabels/master/dist/Leaflet.streetlabels.js"></script>
 <style>
       .fa{
     font-family: FontAwesome;}
@@ -44,29 +47,38 @@
         margin-top: 8px;
     }
 </style>
-
   <script type="text/javascript">
         function maplayers(map, options) {
-            var border = new L.GeoJSON.AJAX('{%url 'border_data'%}',
-            { color: 'yellow',
-            })
-            border.bindTooltip("my tooltip text").openTooltip();
-
-            border.addTo(map);
-        var Road = new L.GeoJSON.AJAX('{%url 'roads_data'%}',
-            {
+var Road = new L.GeoJSON.AJAX('{%url 'roads_data'%}', {
+    style: function (feature) {
+        return {
         weight: 3,
         fillOpacity: 0.7,
         color: 'blue',
         dashArray: '3',
-        label:"FFF"
-            }).addTo(map);
 
+            };
+    }
+}).bindPopup(function (layer) {
+    return layer.feature.properties.name;
+}).addTo(map);
 
-var BaseLayers = L.layerGroup([  Road, border])
+var border = new L.GeoJSON.AJAX('{%url 'border_data'%}', {
+    style: function (feature) {
+        return {
+        fillOpacity: 0.1,
+        color: 'yellow',
+            };
+    }
+}).bindPopup(function (layer) {
+    return layer.feature.properties.section_a_field;
+}).addTo(map);
+
+  var BaseLayers = L.layerGroup([Road, border])
 map.addLayer(BaseLayers);
-            map.layerscontrol.addOverlay(border,'City Borders')
             map.layerscontrol.addOverlay(Road,'City Roads')
+            map.layerscontrol.addOverlay(border,'City Borders')
+
 
             var hospital = new L.GeoJSON.AJAX('{%url 'hospital_data'%}', {
                     pointToLayer: function(feature, latlng) {
